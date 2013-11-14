@@ -26,7 +26,7 @@ public class Signature
         arr.Sort();
 
         string signature = string.Join(string.Empty, arr.ToArray());
-        signature = GetSha1(appinfo).ToLower();
+        signature = GetSha1(signature).ToLower();
 
         return signature;
     }
