@@ -1,10 +1,16 @@
-###明道.Net/C# 版本的SDK，包含了用户鉴权和几个常用的API调用
+###明道账务中心签名算法
 
-此版本基于.Net Framework 2.0，工程项目请用VS.NET 2005打开即可，高版本请进行转换之后打开
+凡是需要调用账单部分或事件通知部分的接口均需要校验提交数据方的合法性，若确认此次请求来自明道服务器或者扩展应用服务器，则进行后续流程操作。以下规定了校验算法流程，加密和签名编码格式都为utf-8
+
+* 将从明道开放平台申请的应用appkey和appsecret的值转换为小写，按照字典排序并拼接成字符串  
+* 将拼接字符串进行md5加密形成32位appinfo信息，也转换为小写  
+* 将appinfo、timestamp、nonce、content四个内容按照字典排序  
+* 将四个字符串拼接成一个小写字符串进行sha1算法加密  
+* 扩展应用或者明道将加密后的字符串与signature参数做对比，验证其有效性，如果相等则说明请求的安全与合法    
+
+此项目包含C#、Node.js的签名写法，请详见文件查看 
+
 ***
-调用API 测试流程请修改配置文件的AppKey和AppSecret
-***
-公有云请到明道开放平台创建应用 <http://open.mingdao.com> 私有部署请联系管理员创建应用并获取令牌
 
-
-具体开发指南请见《[明道开放平台指南](http://open.mingdao.com/md_develop_tread.html)》
+关于明道账务中心，详见《[明道账务中心简介](http://open.mingdao.com/md_account_guide.html)》  
+关于明道开放平台，详见《[明道开放平台](http://open.mingdao.com/md_api_intro.html)》
