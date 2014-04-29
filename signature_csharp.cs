@@ -22,8 +22,9 @@ public class Signature
         arr.Add(appinfo);
         arr.Add(timestamp.ToLower());
         arr.Add(nonce.ToLower());
-        arr.Add(content.ToLower());
         arr.Sort();
+        //将content内容插到最开始部分
+        arr.Insert(0, content.ToLower());
 
         string signature = string.Join(string.Empty, arr.ToArray());
         signature = GetSha1(signature).ToLower();
@@ -37,14 +38,6 @@ public class Signature
     public string GetMd5(string str)
     {
         string md5Str = null;
-
-        //System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create();
-        //byte[] s = md5.ComputeHash(System.Text.Encoding.UTF8.GetBytes(str));
-        //for (int i = 0; i < s.Length; i++)
-        //{
-        //    md5Str = md5Str + s[i].ToString("X");
-        //}
-
         md5Str = System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(str, "MD5");
 
         return md5Str;
@@ -56,10 +49,6 @@ public class Signature
     public string GetSha1(string str)
     {
         string sha1Str = null;
-
-        //System.Security.Cryptography.SHA1 sha1 = System.Security.Cryptography.SHA1CryptoServiceProvider.Create();
-        //byte[] s = sha1.ComputeHash(System.Text.Encoding.UTF8.GetBytes(str));
-        //sha1Str = BitConverter.ToString(s).Replace("-", string.Empty);
 
         sha1Str = System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(str, "SHA1");
 
