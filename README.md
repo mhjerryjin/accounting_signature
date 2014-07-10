@@ -13,5 +13,5 @@
 
 ***
 
-关于明道账务中心，详见《[明道账务中心简介](http://open.mingdao.com/md_account_guide.html)》  
-关于明道开放平台，详见《[明道开放平台](http://open.mingdao.com/md_api_intro.html)》
+关于明道账务中心，详见《[明道账务中心简介](http://open.mingdao.com/document/bill)》  
+关于明道开放平台，详见《[明道开放平台](http://open.mingdao.com/)》
