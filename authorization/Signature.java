@@ -51,8 +51,4 @@ public class Signature {
         return strResult;
     }
 
-    public static void main(String[] args) {
-        Signature.getSignature("dsfsdf",123123L);
-    }
-
 }
