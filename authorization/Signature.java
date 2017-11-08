@@ -7,12 +7,12 @@ public class Signature {
 
     /**
      * 获得签名
-     * @param secret SecretKey
+     *
+     * @param secret    SecretKey
      * @param timestamp UTC时间戳（精度为毫秒）
      * @return
-     * @throws Exception
      */
-    public static String getSignature(String secret, long timestamp) throws Exception {
+    public static String getSignature(String secret, long timestamp) {
 
         return Signature.SHA256(secret + timestamp);
 
@@ -20,6 +20,7 @@ public class Signature {
 
     /**
      * SHA256加密
+     *
      * @param strText
      * @return
      */
@@ -48,6 +49,10 @@ public class Signature {
         }
 
         return strResult;
+    }
+
+    public static void main(String[] args) {
+        Signature.getSignature("dsfsdf",123123L);
     }
 
 }
