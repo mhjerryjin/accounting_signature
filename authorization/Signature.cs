@@ -11,9 +11,9 @@ namespace MD.Utilituy
         /// <summary>
         /// 获得签名
         /// </summary>
-        /// <param name="appKey"></param>
-        /// <param name="secretKey"></param>
-        /// <param name="timestamp"></param>
+        /// <param name="appKey">AppKey</param>
+        /// <param name="secretKey">SecretKey</param>
+        /// <param name="timestamp">UTC时间戳（精度为毫秒）</param>
         /// <returns></returns>
         public static string GetSignature(string appKey, string secretKey, long timestamp)
         {
@@ -28,9 +28,8 @@ namespace MD.Utilituy
 
             byte[] bytes = Encoding.UTF8.GetBytes(hash);
 
-            var base64Url = Convert.ToBase64String(bytes);
+            return Convert.ToBase64String(bytes);
 
-            return base64Url;
         }
 
         /// <summary>
